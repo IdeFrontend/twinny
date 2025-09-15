@@ -2,16 +2,20 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 95vh;
+  height: 100vh;
   width: 100%;
+  background: var(--vscode-editor-background);
+  overflow: hidden;
 }
 
 .fullScreenActions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 4px;
-  margin-top: 20px;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--vscode-editor-background);
+  border-bottom: 1px solid var(--vscode-panel-border);
 }
 
 .markdown,
@@ -19,12 +23,13 @@
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  font-size: .85rem;
-  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  background: var(--vscode-editor-background);
 }
 
 .markdown {
-  padding-top: 20px;
+  padding: 0;
 }
 
 .markdown::-webkit-scrollbar,
@@ -74,22 +79,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 12px 16px 8px 16px;
+  background: var(--vscode-editor-background);
+  border-top: 1px solid var(--vscode-panel-border);
+  min-height: 40px;
 }
 
 .chatOptions > div {
-  gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .chatOptions svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .chatOptions vscode-badge {
   font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -97,24 +109,26 @@
 
 .contextItems {
   display: flex;
-  margin-top: 20px;
-  padding-bottom: 5px;
+  padding: 12px 16px 8px 16px;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 6px;
+  background: var(--vscode-editor-background);
+  border-bottom: 1px solid var(--vscode-panel-border);
 }
 
 .contextItem {
   display: flex;
   align-items: center;
-  padding: 4px 6px;
-  background-color: var(--vscode-editorWidget-background);
-  border: 1px solid var(--vscode-editorWidget-border);
-  border-radius: 4px;
+  padding: 6px 12px;
+  background: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 16px;
   font-size: 12px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease;
   min-width: 0;
   max-width: 200px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .contextItemIcon {
@@ -138,34 +152,83 @@
   transition: background-color 0.2s ease;
 }
 
+.contextItem:hover {
+  background: var(--vscode-inputOption-hoverBackground);
+  border-color: var(--vscode-focusBorder);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
 .contextItemClose:hover {
-  background-color: var(--vscode-toolbar-hoverBackground);
+  background-color: var(--vscode-errorBackground);
+  color: var(--vscode-errorForeground);
 }
 
 .scrollToBottom {
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+  position: absolute;
+  bottom: 80px;
+  right: 16px;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  background: var(--vscode-button-background);
+  border: 1px solid var(--vscode-button-border);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .scrollToBottom:hover {
   opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .chatBox {
   position: relative;
-  margin-top: 12px;
-  transition: transform 0.2s ease;
+  margin: 0 16px 16px 16px;
+  background: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.chatBox:focus-within {
+  border-color: var(--vscode-focusBorder);
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.1), 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
 .chatButtons {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
+  bottom: 12px;
+  right: 12px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+}
+
+.chatButtons vscode-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: var(--vscode-button-background);
+  border: 1px solid var(--vscode-button-border);
+}
+
+.chatButtons vscode-button:hover {
+  background: var(--vscode-button-hoverBackground);
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chatButtons vscode-button:last-child {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+}
+
+.chatButtons vscode-button:last-child:hover {
+  background: var(--vscode-button-hoverBackground);
 }
 
 .menuContainer {
@@ -219,28 +282,37 @@
 
 .tiptap {
   width: 100%;
-  min-width: var(--input-min-width);
-  min-height: 60px;
-  padding: 7px;
-  border: calc(var(--border-width) * 1px) solid var(--dropdown-border);
-  border-radius: 6px;
-  background: var(--input-background);
-  color: var(--input-foreground);
+  min-height: 48px;
+  max-height: 300px;
+  padding: 16px 60px 16px 16px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--vscode-input-foreground);
   font-family: var(--vscode-font-family);
-  font-size: .85rem;
-  line-height: var(--type-ramp-base-line-height);
+  font-size: 14px;
+  line-height: 1.4;
   resize: none;
   outline: none;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  overflow-y: auto;
   box-sizing: border-box;
-  padding-bottom: 30px;
 }
 
-.tiptap:focus {
-  border-color: var(--vscode-focusBorder);
-  box-shadow: 0 0 0 1px var(--vscode-focusBorder);
+.tiptap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tiptap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tiptap::-webkit-scrollbar-thumb {
+  background: var(--vscode-scrollbarSlider-background);
+  border-radius: 2px;
+}
+
+.tiptap::placeholder {
+  color: var(--vscode-input-placeholderForeground);
 }
 
 .tiptap p {
