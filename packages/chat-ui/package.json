@@ -1,0 +1,27 @@
+{
+  "name": "analyzr-chat-ui",
+  "version": "0.1.0",
+  "description": "Reusable React chat UI components extracted from Analyzr/Twinny webview",
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "react-markdown": ">=9",
+    "remark-gfm": ">=4"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

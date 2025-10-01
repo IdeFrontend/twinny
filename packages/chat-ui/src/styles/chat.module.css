@@ -1,0 +1,139 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 95vh;
+  width: 100%;
+}
+
+.fullScreenActions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.chatOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.chatOptions > div {
+  gap: 6px;
+}
+
+.chatOptions svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contextItems {
+  display: flex;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.contextItem {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  background-color: var(--vscode-editorWidget-background);
+  border: 1px solid var(--vscode-editorWidget-border);
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  min-width: 0;
+  max-width: 200px;
+}
+
+.contextItemIcon {
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.contextItemName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+.contextItemClose {
+  flex-shrink: 0;
+  padding: 2px;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.contextItemClose:hover {
+  background-color: var(--vscode-toolbar-hoverBackground);
+}
+
+.scrollToBottom {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.scrollToBottom:hover {
+  opacity: 1;
+}
+
+.chatBox {
+  position: relative;
+  margin-top: 12px;
+  transition: transform 0.2s ease;
+}
+
+.chatButtons {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tiptap {
+  width: 100%;
+  min-width: var(--input-min-width);
+  min-height: 60px;
+  padding: 7px;
+  border: calc(var(--border-width) * 1px) solid var(--dropdown-border);
+  border-radius: 6px;
+  background: var(--input-background);
+  color: var(--input-foreground);
+  font-family: var(--vscode-font-family);
+  font-size: .85rem;
+  line-height: var(--type-ramp-base-line-height);
+  resize: none;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+}
+
+.tiptap:focus {
+  border-color: var(--vscode-focusBorder);
+  box-shadow: 0 0 0 1px var(--vscode-focusBorder);
+}
+
+.tiptap p {
+  margin: 0;
+}
+
+.tiptap:first-child {
+  margin-top: 0;
+}
+

@@ -31,6 +31,9 @@
   },
   "license": "MIT",
   "publisher": "rjmacarthy",
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
     "vscode": "^1.84.0"
   },
